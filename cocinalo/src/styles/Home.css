@@ -1,0 +1,43 @@
+.Home-container{
+    background-image: url('../media/background_image.png');
+}
+
+.Home-content-image-and-description{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.Home-image-container img{
+    max-width: 60%;
+    height: auto;
+}
+
+.Home-image-container{
+    flex: 1.5;
+}
+
+.Home-description-container{
+    position: relative;
+    flex: 2.5;
+}
+
+.Home-description-container p{
+    text-align: left;
+    color: #EAE2B7;
+    font-size: 2rem;
+    font-weight: bolder;
+    padding-left: 160px;
+}
+
+.Cook-btn{
+    position: absolute;
+    left: 18rem;
+    text-decoration: none;
+    color: #EAE2B7;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #003049;
+    font-weight: bolder;
+}
