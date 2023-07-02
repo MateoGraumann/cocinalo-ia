@@ -1,5 +1,6 @@
 .Home-container{
-    background-image: url('../media/background_image.png');
+    Background: linear-gradient(rgb(0,0,0,0.3),rgb(0,0,0,0.3)), url('../media/background_image.png');
+    
 }
 
 .Home-content-image-and-description{
@@ -40,4 +41,39 @@
     border-radius: 5px;
     background-color: #003049;
     font-weight: bolder;
+}
+
+.Navbar-container {
+    color: #EAE2B7;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+}
+  
+.Navbar-content-left {
+    margin-right: auto;
+}
+  
+.Navbar-text {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bolder;
+}
+  
+.Navbar-content-right {
+    margin-left: auto;
+}
+  
+.Navbar-button-1, .Navbar-button-2{
+    color: #EAE2B7;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.Navbar-button-2{
+    background-color: #F77F00;
+    border-radius: 10px;
+    padding: 5px 15px;
 }

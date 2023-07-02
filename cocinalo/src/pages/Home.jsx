@@ -1,9 +1,11 @@
-import '../styles/Home.css'
-import ImageGirl from '../media/girl_image.png'
+import '../styles/Home.css';
+import ImageGirl from '../media/girl_image.png';
+import Navbar from '../components/Navbar';
 
 export default function Home(){
     return(
         <div className='Home-container'>
+            <Navbar />
             <div className="Home-content-image-and-description">
                 <div className="Home-description-container">
                     <p>¿No sabes que cocinar?</p>
