@@ -41,6 +41,7 @@
     border-radius: 5px;
     background-color: #003049;
     font-weight: bolder;
+    cursor: pointer;
 }
 
 .Navbar-container {

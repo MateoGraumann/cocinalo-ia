@@ -11,7 +11,7 @@ function App() {
           {/* Home Display */}
           <Route path="/" element={<Home/>}/>
 
-          {/* Turismo Display */}
+          {/* Cocinalo Display */}
           <Route path="/cocinalo" element={<Cocinalo/>}/>
 
         </Routes>

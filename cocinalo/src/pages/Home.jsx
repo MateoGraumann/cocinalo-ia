@@ -1,8 +1,10 @@
 import '../styles/Home.css';
 import ImageGirl from '../media/girl_image.png';
 import Navbar from '../components/Navbar';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home(){
+    const navigate = useNavigate();
     return(
         <div className='Home-container'>
             <Navbar />
@@ -10,7 +12,7 @@ export default function Home(){
                 <div className="Home-description-container">
                     <p>¿No sabes que cocinar?</p>
                     <p>Deja que una IA lo haga por ti</p>
-                    <a href='#' className='Cook-btn'>Comenzar a cocinar</a>
+                    <a className='Cook-btn' onClick={() => navigate('cocinalo')}>Comenzar a cocinar</a>
                 </div>
                 <div className="Home-image-container">
                     <img src={ImageGirl} alt='Chica_cocinando' />
