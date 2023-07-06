@@ -1,5 +1,6 @@
 .Home-container{
-    Background: linear-gradient(rgb(0,0,0,0.3),rgb(0,0,0,0.3)), url('../media/background_image.png');
+    Background: linear-gradient(rgb(0,0,0,0.3),rgba(0, 0, 0, 0.3)), url('../media/background/background_image.png');
+    font-family: 'Poppins', sans-serif;
     
 }
 
@@ -25,6 +26,7 @@
 }
 
 .Home-description-container p{
+    margin-top: 0;
     text-align: left;
     color: #EAE2B7;
     font-size: 2rem;
@@ -48,7 +50,7 @@
     color: #EAE2B7;
     display: flex;
     justify-content: space-between;
-    padding: 10px 50px;
+    padding: 20px 50px;
 }
   
 .Navbar-content-left {

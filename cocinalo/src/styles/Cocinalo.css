@@ -1,0 +1,85 @@
+.Cocinalo-container{
+    background-image: url('../media/background/cocinalo_image.jpg');
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.Content-container{
+    background-color: #F5F5F5;
+    width: 75%;
+}
+.Divs-container{
+    display: flex;
+}
+
+.Left-div{
+    width: 60%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Right-div{
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 10px 20px;
+    width: 40%;
+    min-height: 200px;
+    height: fit-content;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+.Cocinalo-text{
+    margin: 20px 20px 0px 20px;
+    font-size: 30px;
+}
+
+.Cocinar-button{
+    text-align: center;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    padding: 10px 15px;
+    background-color: #0d6efd;
+    width: 100px;
+}
+
+.Cocinar-button-container{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Card */
+.Card-container{
+    background-color: rgb(255, 255, 255);
+    width: 200px;
+    height: 80px;
+    padding: 20px;
+    margin: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+    
+}
+
+.Card-container-content{
+    display: flex;
+    height: 60px;
+}
+
+.Card-description{
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Card-image{
+    width: 45%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}

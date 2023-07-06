@@ -1,6 +1,6 @@
 import '../styles/Home.css';
-import ImageGirl from '../media/girl_image.png';
-import Navbar from '../components/Navbar';
+import ImageGirl from '../media/background/girl_image.png';
+import Navbar from '../components/Home-components/Navbar';
 import { useNavigate } from 'react-router-dom';
 
 export default function Home(){
