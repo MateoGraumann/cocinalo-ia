@@ -100,8 +100,21 @@ export default function Cocinalo(){
                         <h3>Ingredientes seleccionados:</h3>
                     </div>
                 </div>
-                <div className="Cocinar-button-container">
-                    <div className="Cocinar-button">Cocinar!</div>
+                <div className="Cocinalo-footer">
+                    <div className="Cocinalo-checkbox">
+                        <div className="Checkbox-1">
+                            Desayuno <input type='checkbox' name='breakfast'/><br/>
+                            Merienda <input type='checkbox' name='snack'/><br/>
+                            Cena <input type='checkbox' name='dinner'/><br/>
+                        </div>
+                        <div className="Checkbox-2">
+                            Vegano <input type='checkbox' name='vegan'/><br/>
+                            Sin Tacc <input type='checkbox' name='not-tacc'/><br/>
+                        </div>
+                    </div>
+                    <div className="Cocinar-button-container">
+                        <div className="Cocinar-button">Cocinar!</div>
+                    </div>
                 </div>
             </div>
         </div>

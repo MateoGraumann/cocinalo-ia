@@ -44,14 +44,26 @@
     padding: 10px 15px;
     background-color: #0d6efd;
     width: 100px;
+    height: 25px;
+    cursor: pointer;
 }
 
 .Cocinar-button-container{
-    margin-top: 100px;
+    width: 45%;
     display: flex;
     justify-content: center;
 }
 
+.Cocinalo-checkbox{
+    width: 55%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.Cocinalo-footer{
+    margin: 20px;
+    display: flex;
+}
 
 /* Card */
 .Card-container{
