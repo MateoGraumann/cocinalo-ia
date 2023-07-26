@@ -1,6 +1,6 @@
 import DropdownArrow from '../../media/icons/down-arrow.png'
 
-export default function Card({name,icon}){
+export default function Card({name, icon, setShowModal, setCardSelected}){
     return(
         <div className="Card-container">
             <div className="Card-container-content">
@@ -11,10 +11,9 @@ export default function Card({name,icon}){
                     <img src={icon} alt={`imagen-de-${name}`}/>
                 </div>
             </div>
-            <div className="Dropdown-icon">
+            <div className="Dropdown-icon" onClick={() => {setShowModal(true); setCardSelected(`${name}`)}}>
                 <img src={DropdownArrow} alt={"dropdown-arrow"}/>
             </div>
         </div>
     )
-
 }

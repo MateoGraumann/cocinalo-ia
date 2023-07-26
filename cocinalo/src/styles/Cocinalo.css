@@ -65,11 +65,15 @@
     display: flex;
 }
 
+.Checkbox-1 h4, .Checkbox-2 h4{
+    margin-bottom: 5px;
+}
+
 /* Card */
 .Card-container{
     background-color: rgb(255, 255, 255);
     width: 200px;
-    height: 80px;
+    height: 65px;
     padding: 20px;
     margin: 10px 20px;
     border-radius: 15px;
@@ -94,4 +98,46 @@
     justify-content: center;
     align-items: center;
     display: flex;
+}
+
+.Dropdown-icon{
+    cursor: pointer;
+}
+
+/* Modal */
+
+.Modal-container {
+    width: 60%;
+    height: 60%;
+    background-color: azure;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    border-radius: 20px;
+}
+
+.Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity here (0.5 for 50% opaque) */
+    z-index: 9998;
+}
+
+.Modal-content{
+    margin: 15px;
+}
+
+.Modal-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.Modal-close{
+    cursor: pointer;
 }
