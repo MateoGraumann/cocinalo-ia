@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { UseChatGPT } from '../hooks/ChatGPT';
 
 // ICONS
@@ -19,6 +19,8 @@ export default function Cocinalo(){
     const [cardSelected, setCardSelected] = useState("");
     const [igredientsCategory, setIngredientsCategory] = useState([]);
     const [ingredientsSelected, setIngredients] = useState([]);
+    const [menuHour, setMenuHour] = useState([]);
+    const [menuType, setMenuType] = useState([]);
 
     const categories = [
         {
@@ -222,19 +224,31 @@ export default function Cocinalo(){
     ]
 
     const handleMakeQuery = () => {
-        let query = `Tengo los siguientes ingredientes: ${ingredientsSelected.join(", ")}. Quiero que me realices una receta para mi desayuno`
+        let query = `Tengo los siguientes ingredientes: ${ingredientsSelected.join(", ")} ${menuHour.length > 0 ? ". Quiero que me realices un menu para mi: " + menuHour + "." : ".Quiero que me realices un menu con los ingredientes propuestos."} ${menuType.length>0 ? "Mi menu debe ser apto para: " + menuType : ""}`
 
-        alert(query)
+        UseChatGPT(query).then((p)=>{
+            if(!p.error){
+                console.log(p.data)
+            }
+        })
+    
     };
 
+    const handleMenuHour = (momentoftheday) => {
+        if(menuHour.includes(momentoftheday)){
+            setMenuHour(prevMenuHour => prevMenuHour.filter(item => item !== momentoftheday))
+        }else{
+            setMenuHour(prevMenuHour => [...prevMenuHour, momentoftheday])
+        }
+    };
 
-    // useEffect(() => {
-    //     UseChatGPT("Quien es messi").then((p)=>{
-    //         if(!p.error){
-    //             console.log(p.data)
-    //         }
-    //     })
-    // })
+    const handleMenuType = (type) => {
+        if(menuType.includes(type)){
+            setMenuType(prevMenuType => prevMenuType.filter(item => item !== type))
+        }else{
+            setMenuType(prevMenuType => [...prevMenuType, type])
+        }
+    };
 
     return(
         <>
@@ -263,22 +277,22 @@ export default function Cocinalo(){
                         <div className="Cocinalo-checkbox">
                             <div className="Checkbox-1">
                                 <h4>Momento del dia?</h4>
-                                Desayuno <input type='checkbox' name='breakfast'/><br/>
-                                Almuerzo <input type='checkbox' name='launch'/><br/>
-                                Merienda <input type='checkbox' name='snack'/><br/>
-                                Cena <input type='checkbox' name='dinner'/><br/>
+                                Desayuno <input type='checkbox' name='desayuno' onChange={(e)=>handleMenuHour(e.target.name)}/><br/>
+                                Almuerzo <input type='checkbox' name='almuerzo' onChange={(e)=>handleMenuHour(e.target.name)}/><br/>
+                                Merienda <input type='checkbox' name='merienda' onChange={(e)=>handleMenuHour(e.target.name)}/><br/>
+                                Cena <input type='checkbox' name='cena' onChange={(e)=>handleMenuHour(e.target.name)}/><br/>
                             </div>
                             <div className="Checkbox-2">
                                 <h4>Tipo de menu?</h4>
-                                Vegano <input type='checkbox' name='vegan'/><br/>
-                                Vegetariano <input type='checkbox' name='vegetarian'/><br/>
-                                Celiaco <input type='checkbox' name='celiac'/><br/>
-                                Diabetico <input type='checkbox' name='diabetic'/><br/>
-                                Sin Tacc <input type='checkbox' name='not-tacc'/><br/>
+                                Vegano <input type='checkbox' name='vegano' onChange={(e)=>handleMenuType(e.target.name)}/><br/>
+                                Vegetariano <input type='checkbox' name='vegetariano' onChange={(e)=>handleMenuType(e.target.name)}/><br/>
+                                Celiaco <input type='checkbox' name='celiaco' onChange={(e)=>handleMenuType(e.target.name)}/><br/>
+                                Diabetico <input type='checkbox' name='diabetico' onChange={(e)=>handleMenuType(e.target.name)}/><br/>
+                                Sin Tacc <input type='checkbox' name='sin-tacc' onChange={(e)=>handleMenuType(e.target.name)}/><br/>
                             </div>
                         </div>
-                        <div className="Cocinar-button-container" onClick={handleMakeQuery}>
-                            <div className="Cocinar-button">Cocinar!</div>
+                        <div className={ingredientsSelected.length === 0 ? "Cocinar-button-container-disabled" : "Cocinar-button-container"} onClick={handleMakeQuery}>
+                            <div className={ingredientsSelected.length === 0 ? "Cocinar-button-disabled" : "Cocinar-button"}>Cocinar!</div>
                         </div>
                     </div>
                 </div>
