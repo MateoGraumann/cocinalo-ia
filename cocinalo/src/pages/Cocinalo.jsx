@@ -17,6 +17,8 @@ export default function Cocinalo(){
 
     const [showModal, setShowModal] = useState(false);
     const [cardSelected, setCardSelected] = useState("");
+    const [igredientsCategory, setIngredientsCategory] = useState([]);
+    const [ingredientsSelected, setIngredients] = useState([]);
 
     // const units = ["Kg", "Unidad", "gramos"];
     // const ingredients = [
@@ -40,35 +42,204 @@ export default function Cocinalo(){
     const categories = [
         {
             id: 1,
-            name:"Vegetales",
-            icon: VegetalesIcon
+            name:"Frutas y Vegetales",
+            icon: VegetalesIcon,
+            ingredients: [
+                "zanahoria",
+                "espinaca",
+                "brócoli",
+                "cebolla",
+                "tomate",
+                "pepino",
+                "morrón",
+                "coliflor",
+                "calabacín",
+                "remolacha",
+                "apio",
+                "repollo",
+                "berenjena",
+                "calabaza",
+                "papa",
+                "batata",
+                "rúcula",
+                "maíz",
+                "hinojo",
+                "puerro",
+                "lechuga",
+                "acelga",
+                "perejil",
+                "rabanito",
+                "achicoria",
+                "manzana",
+                "banana",
+                "naranja",
+                "limón",
+                "uva",
+                "frutilla",
+                "arándano",
+                "frambuesa",
+                "ananá",
+                "mango",
+                "sandía",
+                "melón",
+                "kiwi",
+                "granada",
+                "ciruela",
+                "pera",
+                "durazno",
+                "melocotón",
+                "mandarina",
+                "guayaba",
+                "higo",
+                "cerezas",
+                "moras",
+                "palta"
+            ]
         },
         {
             id: 2,
             name:"Proteínas",
-            icon: ProteinIcon
+            icon: ProteinIcon,
+            ingredients: [
+                "Pollo",
+                "Pescado",
+                "Carne de res",
+                "Pavo",
+                "Huevos",
+                "Tofu",
+                "Camarones",
+                "Cangrejo",
+                "Sardinas",
+                "Anchoas",
+                "Pechuga de pavo",
+                "Carne de cerdo",
+                "Carne de cordero",
+                "Hígado",
+                "Ternera",
+                "Jamón",
+                "Albóndigas",
+                "Salchichas",
+                "Salmón",
+                "Bacalao",
+                "Pulpo",
+                "Calamares",
+            ]
         },
         {
             id: 3,
             name:"Condimentos",
-            icon: SpicesIcon
+            icon: SpicesIcon,
+            ingredients: [
+                "Sal",
+                "Pimienta",
+                "Ajo en polvo",
+                "Cebolla en polvo",
+                "Cúrcuma",
+                "Pimentón dulce",
+                "Pimentón picante",
+                "Comino",
+                "Orégano",
+                "Tomillo",
+                "Romero",
+                "Albahaca",
+                "Perejil",
+                "Cilantro",
+                "Nuez moscada",
+                "Canela",
+                "Clavo de olor",
+                "Jengibre en polvo",
+                "Curry en polvo",
+                "Mostaza en polvo",
+                "Salsa de soja",
+                "Salsa de tomate",
+                "Mayonesa",
+                "Mostaza",
+                "Salsa picante",
+                "Salsa barbacoa",
+            ]
         },
         {
             id: 4,
             name:"Granos y legumbres",
-            icon: LegumesIcon
+            icon: LegumesIcon,
+            ingredients: [
+                "Arroz",
+                "Lentejas verdes",
+                "Lentejas rojas",
+                "Lentejas pardinas",
+                "Lentejas beluga",
+                "Lentejas amarillas",
+                "Garbanzos normales",
+                "Garbanzos negros",
+                "Garbanzos verdes",
+                "Arbejas",
+                "Habas",
+                "Maiz",
+                "Porotos blancos",
+                "Porotos negros",
+                "Avena",
+                "Quinoa",
+                "Mijo",
+            ]
         },
         {
             id: 5,
             name:"Lácteos",
-            icon: DairyIcon
+            icon: DairyIcon,
+            ingredients: [
+                "Leche",
+                "Yogur",
+                "Yogur natural",
+                "Crema",
+                "Leche condensada",
+                "Leche en polvo",
+                "Leche de almendras",
+                "Leche de soja",
+                "Leche de coco",
+                "Leche descremada",
+                "Leche entera",
+                "Queso crema",
+                "Queso cremoso",
+                "Queso rallado",
+                "Queso azul",
+                "Queso feta",
+                "Queso cottage",
+                "Queso ricotta",
+                "Queso parmesano",
+                "Queso suizo",
+                "Queso brie",
+                "Manteca",
+                "Crema batida",
+                "Leche condensada azucarada",
+                "Leche condensada sin azúcar",
+                "Margarina",
+            ]
         },
         {
             id: 6,
             name:"Ingredientes básicos",
-            icon: ShelvesIcon
+            icon: ShelvesIcon,
+            ingredients: [
+                "Harina",
+                "Azúcar",
+                "Levadura",
+                "Levadura en polvo",
+                "Aceite de oliva",
+                "Aceite de girasol",
+                "Vinagre",
+                "Miel",
+                "Azúcar moreno",
+                "Vainilla",
+                "Cacao en polvo",
+                "Bicarbonato de sodio",
+                "Polvo de hornear",
+                "Gelatina",
+                "Caldo de pollo",
+                "Caldo de verduras",                
+            ]
         },
     ]
+    console.log(ingredientsSelected)
 
     // const auxiliarIngredients = []
     // let query = 'Tengo los siguientes ingredientes: '
@@ -90,7 +261,6 @@ export default function Cocinalo(){
     //         }
     //     })
     // })
-
     return(
         <>
             <div className="Cocinalo-container">
@@ -101,11 +271,11 @@ export default function Cocinalo(){
                     <div className="Divs-container">
                         <div className="Left-div">
                             {categories.map((item)=>(
-                                <Card 
-                                    name={item.name}
-                                    icon={item.icon}
+                                <Card
+                                    item={item}
                                     setShowModal={setShowModal}
                                     setCardSelected={setCardSelected}
+                                    setIngredientsCategory={setIngredientsCategory}
                                     key={item.id}
                                 />
                             ))}
@@ -137,7 +307,7 @@ export default function Cocinalo(){
                         </div>
                     </div>
                 </div>
-                <Modal isActive={showModal} setShowModal={setShowModal} cardSelected={cardSelected}/> 
+                <Modal isActive={showModal} setShowModal={setShowModal} cardSelected={cardSelected} ingredients={igredientsCategory} setIngredients={setIngredients} ingredientsSelected={ingredientsSelected}/> 
             </div>
         </>
     )

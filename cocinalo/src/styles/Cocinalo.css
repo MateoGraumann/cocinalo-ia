@@ -100,15 +100,15 @@
     display: flex;
 }
 
-.Dropdown-icon{
+.Dropdown-icon img{
     cursor: pointer;
 }
 
 /* Modal */
 
 .Modal-container {
-    width: 60%;
-    height: 60%;
+    width: 65%;
+    height: fit-content;
     background-color: azure;
     position: fixed;
     top: 50%;
@@ -124,7 +124,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity here (0.5 for 50% opaque) */
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 9998;
 }
 
@@ -138,6 +138,56 @@
     padding: 15px;
 }
 
+.Modal-p{
+    font-size: 20px;
+}
+
+.Modal-item{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #8CA8E7;
+    transition: background-color 0.2s;
+    text-align: center;
+    justify-content: center;
+}
+  
+.dark-blue {
+    background-color: #084AA8 !important;
+    color: rgb(255, 255, 255) !important;
+}
+
 .Modal-close{
     cursor: pointer;
+}
+
+.Modal-body{
+    padding: 15px;
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+    grid-gap: 10px;
+    max-height: max-content;
+}
+
+.Modal-body-p{
+    margin: 0px;
+    font-size: 14px;
+    padding-right: 10px;
+}
+
+.Modal-btn{
+    text-align: center;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    padding: 10px 15px;
+    background-color: #0d6efd;
+    width: 100px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.Modal-btn-container{
+    display: flex;
+    justify-content: center;
 }
