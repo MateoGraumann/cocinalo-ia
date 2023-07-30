@@ -20,25 +20,6 @@ export default function Cocinalo(){
     const [igredientsCategory, setIngredientsCategory] = useState([]);
     const [ingredientsSelected, setIngredients] = useState([]);
 
-    // const units = ["Kg", "Unidad", "gramos"];
-    // const ingredients = [
-    //     {
-    //         name:"Harina",
-    //         quantity:1,
-    //         unity: 'Kg'
-    //     },
-    //     {
-    //         name:"Tomate",
-    //         quantity:1,
-    //         unity: 'Unidad'
-    //     },
-    //     {
-    //         name:"Arvejas",
-    //         quantity:0,
-    //         unity: 'Lata'
-    //     }
-    // ];
-
     const categories = [
         {
             id: 1,
@@ -239,20 +220,13 @@ export default function Cocinalo(){
             ]
         },
     ]
-    console.log(ingredientsSelected)
 
-    // const auxiliarIngredients = []
-    // let query = 'Tengo los siguientes ingredientes: '
+    const handleMakeQuery = () => {
+        let query = `Tengo los siguientes ingredientes: ${ingredientsSelected.join(", ")}. Quiero que me realices una receta para mi desayuno`
 
-    // for (let i = 0; i < ingredients.length; i++) {
-    //     if(ingredients[i].quantity > 0){
-    //     auxiliarIngredients.push(ingredients[i]) 
-    //     } 
-    // }
+        alert(query)
+    };
 
-    // for (let i = 0; i < auxiliarIngredients.length; i++) {
-    //     query = query + auxiliarIngredients[i].name + ': ' +auxiliarIngredients[i].quantity + ' ' + auxiliarIngredients[i].unity + ', '
-    // }
 
     // useEffect(() => {
     //     UseChatGPT("Quien es messi").then((p)=>{
@@ -261,6 +235,7 @@ export default function Cocinalo(){
     //         }
     //     })
     // })
+
     return(
         <>
             <div className="Cocinalo-container">
@@ -302,7 +277,7 @@ export default function Cocinalo(){
                                 Sin Tacc <input type='checkbox' name='not-tacc'/><br/>
                             </div>
                         </div>
-                        <div className="Cocinar-button-container">
+                        <div className="Cocinar-button-container" onClick={handleMakeQuery}>
                             <div className="Cocinar-button">Cocinar!</div>
                         </div>
                     </div>

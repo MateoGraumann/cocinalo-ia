@@ -23,7 +23,15 @@ export default function Modal({isActive, setShowModal, cardSelected, ingredients
                             </div>
                             <div className="Modal-body">
                                 {ingredients.map((item, index) => (
-                                    <div className={handleClassName(item)} onClick={() => setIngredients(prevIngredients => [...prevIngredients, item])} key={index}>
+                                    <div className={handleClassName(item)} onClick={() => {
+                                        if(ingredientsSelected.includes(item)){
+                                            setIngredients(prevIngredients => prevIngredients.filter(ingredient => ingredient !== item));
+                                        }else{
+                                            setIngredients(prevIngredients => [...prevIngredients, item])
+                                        }
+                                        }} 
+                                        key={index}
+                                        >
                                         <p className="Modal-body-p">{item}</p>
                                     </div>
                                 ))}
