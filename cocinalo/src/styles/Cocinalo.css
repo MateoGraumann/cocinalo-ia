@@ -209,3 +209,38 @@
     display: flex;
     justify-content: center;
 }
+
+/* CSS Responsive */
+
+@media(max-width:1300px){
+    .Card-container{
+        width: 150px;
+    }
+}
+
+@media(max-width:1130px){
+    .Left-div{
+        width: 100%;
+    }
+    .Right-div{
+        display: none;
+    }
+    .Cocinalo-footer{
+        flex-direction: column;
+    }
+    .Cocinalo-container{
+        overflow: scroll;
+    }
+    .Cocinar-button-container ,.Cocinar-button-container-disabled{
+        padding: 50px;
+    }
+}
+
+@media(max-width:620px){
+    .Card-description{
+        display: none;
+    }
+    .Card-container{
+        width: 80px;
+    }
+}
