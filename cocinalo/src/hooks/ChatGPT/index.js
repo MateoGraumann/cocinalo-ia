@@ -1,23 +1,35 @@
-import axios from "axios";
+import OpenAI from 'openai';
 
-export const UseChatGPT = async(text) => {
+const openai = new OpenAI({
+  apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+});
+
+export const UseChatGPT = async (text) => {
     try {
-        const { data } = await axios.post('https://api.chatgpt.com/v1/chat/completions', 
-        {
-            prompt: text,
-            max_tokens: 100,
+        const completion = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo",
+            messages: [
+                {
+                    role: "user",
+                    content: text
+                }
+            ],
+            max_tokens: 1000,
             temperature: 0.8,
-        },
-        {
-            headers: {
-                "Authorization": `Bearer ${process.env.CHATGPT_KEY}`,
-                "Content-Type": "application/json",
-            },
-        }
-        );
-        return { data, error: false };
+        });
+
+        const responseText = completion.choices[0]?.message?.content || 'No se pudo generar una respuesta';
+        
+        return { 
+            data: responseText, 
+            error: false 
+        };
     } catch (err) {
-        console.error(err);
-        return { data: null, error: true };
+        console.error('Error en ChatGPT API:', err);
+        return { 
+            data: null, 
+            error: true,
+            errorMessage: err.message 
+        };
     }
-}
+};

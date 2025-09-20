@@ -226,9 +226,12 @@ export default function Cocinalo(){
     const handleMakeQuery = () => {
         let query = `Tengo los siguientes ingredientes: ${ingredientsSelected.join(", ")} ${menuHour.length > 0 ? ". Quiero que me realices un menu para mi: " + menuHour + "." : ".Quiero que me realices un menu con los ingredientes propuestos."} ${menuType.length>0 ? "Mi menu debe ser apto para: " + menuType : ""}`
 
-        UseChatGPT(query).then((p)=>{
-            if(!p.error){
-                console.log(p.data)
+        UseChatGPT(query).then((response)=>{
+            if(!response.error){
+                console.log('Receta generada:', response.data)
+                // Aquí puedes manejar la respuesta, por ejemplo mostrar en un modal o estado
+            } else {
+                console.error('Error generando receta:', response.errorMessage)
             }
         })
     
@@ -270,7 +273,28 @@ export default function Cocinalo(){
                             ))}
                         </div>
                         <div className="Right-div">
-                            <h3>Historial de recetas</h3>
+                        <h3>Ingredientes Seleccionados</h3>
+                            <div className="Selected-ingredients-container">
+                                {ingredientsSelected.length === 0 ? (
+                                    <p className="No-ingredients-text">No hay ingredientes seleccionados</p>
+                                ) : (
+                                    <div className="Ingredients-list">
+                                        {ingredientsSelected.map((ingredient, index) => (
+                                            <div key={index} className="Selected-ingredient">
+                                                <span>{ingredient}</span>
+                                                <button 
+                                                    className="Remove-ingredient-btn"
+                                                    onClick={() => setIngredients(prevIngredients => 
+                                                        prevIngredients.filter(ing => ing !== ingredient)
+                                                    )}
+                                                >
+                                                    ×
+                                                </button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </div>
                     <div className="Cocinalo-footer">
